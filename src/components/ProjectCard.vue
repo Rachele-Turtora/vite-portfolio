@@ -1,7 +1,7 @@
 <script>
 export default {
     name: "ProjectCard",
-    props: ["title", "description"]
+    props: ["title", "description", "img"]
 }
 </script>
 
@@ -9,7 +9,18 @@ export default {
     <div class="card p-2">
         <h2>{{ title }}</h2>
         <p>{{ description }}</p>
+        <div class="img-container">
+            <img :src="`http://127.0.0.1:8000/storage/${img}`" alt="">
+        </div>
     </div>
 </template>
 
-<style></style>
+<style>
+.img-container {
+    height: 200px;
+}
+
+img {
+    height: 100%;
+}
+</style>
