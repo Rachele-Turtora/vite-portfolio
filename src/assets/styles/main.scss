@@ -5,3 +5,6 @@ Index SASS
 @use "./partials/reset" as *;
 @use "./partials/variables" as *;
 @use "./partials/common" as *;
+
+
+@import "bootstrap/scss/bootstrap";
