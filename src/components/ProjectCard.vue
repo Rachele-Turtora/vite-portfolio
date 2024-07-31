@@ -6,18 +6,18 @@ export default {
 </script>
 
 <template>
-    <div class="card p-2">
+    <div class="card p-2 my-2">
         <h2>{{ title }}</h2>
         <p>{{ description }}</p>
         <div class="img-container">
-            <img :src="`http://127.0.0.1:8000/storage/${img}`" alt="">
+            <img :src="`http://127.0.0.1:8000/storage/${img}`" :alt="title">
         </div>
     </div>
 </template>
 
 <style>
 .img-container {
-    height: 200px;
+    height: 220px;
 }
 
 img {
