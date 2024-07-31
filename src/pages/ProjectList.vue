@@ -43,7 +43,8 @@ export default {
     <h1 class="my-4">Progetti</h1>
     <div class="row">
         <div class="col-12 col-md-6 col-lg-4" v-for="project in projects">
-            <ProjectCard :title="project.title" :description="project.description" :img="project.cover_img" />
+            <ProjectCard :title="project.title" :slug="project.slug" :description="project.description"
+                :img="project.cover_img" />
         </div>
     </div>
     <Pagination @getProjects="getProjects" />

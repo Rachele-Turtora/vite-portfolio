@@ -1,7 +1,7 @@
 <script>
 export default {
     name: "ProjectCard",
-    props: ["title", "description", "img"]
+    props: ["title", "slug", "description", "img"]
 }
 </script>
 
@@ -12,7 +12,10 @@ export default {
         <div class="img-container">
             <img :src="`http://127.0.0.1:8000/storage/${img}`" :alt="title">
         </div>
-        <button class="btn btn-outline-primary w-25 m-2">Dettagli</button>
+        <router-link :to="{ name: 'detail', params: { slug } }">
+            <button class="btn btn-outline-primary w-25 m-2">Dettagli</button>
+        </router-link>
+
     </div>
 </template>
 
