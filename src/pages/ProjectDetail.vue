@@ -32,16 +32,28 @@ export default {
 
 <template>
     <h2>{{ project?.title }}</h2>
+    <img :src="project?.cover_img_url" alt="" class="w-75 my-3">
     <p><strong>Tipo: </strong>{{ project?.type.title }}</p>
-    <p><strong>Descizione: </strong>{{ project?.description }}</p>
     <p><strong>Tecnologie utilizzate: </strong></p>
     <ul>
         <li v-for="tech in project?.technologies">
-            <p>{{ tech.title }}</p>
+            <div class="border border-success p-3">
+                {{ tech.title }}
+            </div>
         </li>
     </ul>
+    <p><strong>Descizione: </strong>{{ project?.description }}</p>
 
     <router-link :to="{ name: 'projects' }" class="nav-link">
-        <button class="btn btn-outline-primary">Torna ai progetti</button>
+        <button class="btn btn-outline-primary my-3">Torna ai progetti</button>
     </router-link>
 </template>
+
+<style>
+li {
+    width: 120px;
+    margin: 10px;
+    display: inline-block;
+    text-align: center;
+}
+</style>

@@ -10,7 +10,7 @@ export default {
         <h2>{{ title }}</h2>
         <p>{{ description }}</p>
         <div class="img-container">
-            <img :src="`http://127.0.0.1:8000/storage/${img}`" :alt="title">
+            <img :src="img" :alt="title">
         </div>
         <router-link :to="{ name: 'detail', params: { slug } }">
             <button class="btn btn-outline-primary w-25 m-2">Dettagli</button>
