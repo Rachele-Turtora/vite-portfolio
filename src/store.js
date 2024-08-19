@@ -8,5 +8,6 @@ export const store = reactive({
             projectList: "projects"
         }
     },
-    currentPage: 1
+    currentPage: 1,
+    searchTitle: ""
 })

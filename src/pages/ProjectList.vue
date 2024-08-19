@@ -21,12 +21,15 @@ export default {
         getProjects() {
             const url = this.store.api.baseUrl + this.store.api.endpoints.projectList;
 
-            axios.get(url,
-                {
-                    params: {
-                        page: this.store.currentPage
-                    }
-                })
+            const params = {
+                page: this.store.currentPage
+            };
+
+            if (this.store.searchTitle) {
+                params.title = this.store.searchTitle
+            };
+
+            axios.get(url, { params })
                 .then(response => {
                     this.store.results = response.data.results;
                     this.projects = response.data.results.data;
@@ -35,6 +38,13 @@ export default {
     },
     created() {
         this.getProjects();
+    },
+    watch: {
+        // Se il valore di searchTitle cambia, esegui di nuovo getProjects
+        '$route.query.search': function (newSearch) {
+            this.store.searchTitle = newSearch;
+            this.getProjects();
+        }
     }
 }
 </script>
