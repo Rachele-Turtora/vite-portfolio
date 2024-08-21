@@ -12,7 +12,8 @@ export default {
             title: null,
             description: null,
             type_id: null,
-            selectedTechnologies: []
+            selectedTechnologies: [],
+            cover_img: null
         }
     },
     methods: {
@@ -32,6 +33,9 @@ export default {
                     this.technologies = response.data.results;
                 })
         },
+        handleFileUpload() {
+            this.cover_img = event.target.files[0];
+        },
         newProject() {
 
             const data = {
@@ -39,14 +43,19 @@ export default {
                 description: this.description,
                 type_id: this.type_id,
                 technologies: this.selectedTechnologies,
-                status: "in evidenza"
+                status: "in evidenza",
+                cover_img: this.cover_img
             };
 
             console.log("Dati inviati:", data);
 
             const url = this.store.api.baseUrl + this.store.api.endpoints.projectsList;
 
-            axios.post(url, data)
+            axios.post(url, data, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
                 .then(() => {
                     console.log("Progetto creato correttamente");
                 })
@@ -90,6 +99,11 @@ export default {
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="cover-img" class="form-label">Cover image</label>
+            <input class="form-control" type="file" name="cover_img" id="cover-img" @change="handleFileUpload()">
         </div>
 
         <button class="btn btn-outline-secondary" @click.prevent="newProject()">
