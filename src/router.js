@@ -4,6 +4,7 @@ import AppHome from './pages/AppHome.vue';
 import ProjectList from './pages/ProjectList.vue';
 import AppAbout from './pages/AppAbout.vue';
 import ProjectDetail from './pages/ProjectDetail.vue';
+import CreateProject from './pages/CreateProject.vue';
 
 const router = createRouter({
     history: createMemoryHistory(),
@@ -27,6 +28,11 @@ const router = createRouter({
             path: '/about',
             name: 'about',
             component: AppAbout
+        },
+        {
+            path: '/create',
+            name: 'create',
+            component: CreateProject
         }
     ]
 })

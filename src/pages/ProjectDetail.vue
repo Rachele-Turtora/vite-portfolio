@@ -13,7 +13,7 @@ export default {
     },
     methods: {
         getProject() {
-            const url = this.store.api.baseUrl + this.store.api.endpoints.projectList + "/" + this.$route.params.slug;
+            const url = this.store.api.baseUrl + this.store.api.endpoints.projectsList + "/" + this.$route.params.slug;
 
             axios.get(url)
                 .then(response => {

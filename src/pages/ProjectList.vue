@@ -19,7 +19,7 @@ export default {
     },
     methods: {
         getProjects() {
-            const url = this.store.api.baseUrl + this.store.api.endpoints.projectList;
+            const url = this.store.api.baseUrl + this.store.api.endpoints.projectsList;
 
             const params = {
                 page: this.store.currentPage
@@ -50,7 +50,12 @@ export default {
 </script>
 
 <template>
-    <h1 class="my-4">Progetti</h1>
+    <div class="d-flex justify-content-between align-items-center">
+        <h1 class="my-4">Progetti</h1>
+        <router-link :to="{ name: 'create' }" class="nav-link">
+            <button type="button" class="btn btn-outline-danger py-2 px-3 h-50">Nuovo progetto</button>
+        </router-link>
+    </div>
     <div class="row">
         <div class="col-12 col-md-6 col-lg-4" v-for="project in projects">
             <ProjectCard :title="project.title" :slug="project.slug" :description="project.description"

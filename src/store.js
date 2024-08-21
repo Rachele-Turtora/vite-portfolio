@@ -5,7 +5,9 @@ export const store = reactive({
     api: {
         baseUrl: "http://127.0.0.1:8000/api/",
         endpoints: {
-            projectList: "projects"
+            projectsList: "projects",
+            typesList: "types",
+            technologiesList: "technologies"
         }
     },
     currentPage: 1,
