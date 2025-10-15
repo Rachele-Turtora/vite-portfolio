@@ -1,8 +1,8 @@
-# Template Vite Vue
+## Vite Portfolio - Frontend (Vue 3)
 
-Template di partenza per progetti Vite-Vue
+Questo progetto rappresenta **il frontend del portfolio** ed è sviluppato con **Vue 3 e Vite**.
 
-## Installazione
+### Installazione
 
 ```bash
   npm install
